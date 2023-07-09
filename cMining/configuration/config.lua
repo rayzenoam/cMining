@@ -160,6 +160,11 @@ BarrelSettings = {
     PositionProgress = "bottom", -- Determines the position of the progress bar.
     SearchDuration = 10, -- Determines the duration of the progress bar.
     Cancellable = true, -- Determines if the progress bar can be stopped or no.
+    ChanceOfIllness = 5, -- It allows you to set a percentage chance for acquiring an illness. You can also disable this option by setting it to false.
+    IllnessDamage = 10, -- Damage that the player will receive upon acquiring the illness.
+    Effect = "FAMILY5_DRUG_TRIP_SHAKE", -- Effect that the player obtains upon acquiring the illness. (List of effects: https://docs.fivem.net/natives/?_0xFD55E49555E017CF)
+    EffectDuration = 15, -- Duration of the effect upon acquiring the illness.
+    EffectIntensity = 0.4, -- Intensity of the effect on the player's screen.
     -- The "AnimationDict" configuration allows you to set the animation that will be played during the interaction.
     -- You can find the list of animations here: https://alexguirre.github.io/animations-list/
     AnimationDict = "amb@prop_human_bum_bin@idle_a",

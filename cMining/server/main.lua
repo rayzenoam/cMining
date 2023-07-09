@@ -167,11 +167,22 @@ RegisterServerEvent('cmining:server:search', function()
         return
     end
 
+    ChanceOfIllness = math.random(1, 100)
+
     Item = Config.BarrelSettings.ReceiveItem[math.random(1, Config.RewardSettings.Barrel.TotalItem)]
     Amount = math.random(Config.RewardSettings.Barrel.MinimumAmount, Config.RewardSettings.Barrel.MaximumAmount)
 
-    Player.Functions.AddItem(Item, Amount)
-    TriggerClientEvent('cmining:notify', source, Strings.Success, Strings.SearchSuccess .. Amount .. " " .. Item .. "!", 'success')
+    if Config.BarrelSettings.ChanceOfIllness then
+        if ChanceOfIllness < Config.BarrelSettings.ChanceOfIllness then
+            TriggerClientEvent('cmining:illness', source)
+        else
+            Player.Functions.AddItem(Item, Amount)
+            TriggerClientEvent('cmining:notify', source, Strings.Success, Strings.SearchSuccess .. Amount .. " " .. Item .. "!", 'success')
+        end
+    else
+        Player.Functions.AddItem(Item, Amount)
+        TriggerClientEvent('cmining:notify', source, Strings.Success, Strings.SearchSuccess .. Amount .. " " .. Item .. "!", 'success')
+    end
 end)
 
 RegisterServerEvent('cmining:server:checkcleaning', function()

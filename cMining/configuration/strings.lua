@@ -6,14 +6,15 @@ Strings = {
     NotEnoughCash = "You don't have enough money...",
     ExtractSuccess = "You have successfully extracted the elements from a rock!",
     ExtractFailed = "You were not able to extract this rock.",
+    BreakPickaxe = "Your pickaxe just broke.",
     SearchSuccess = "You searched the barrel and found x",
+    ObtainingIllness = "You cut yourself with a rusty nail.",
     CleaningSuccess = "You have successfully cleaned a stone!",
     SellSuccess = "You have sold your cleaned rocks for a total of $",
     SellFailed = "You don't have any cleaned rocks to sell.",
     NoPickaxe = "You don't have a pickaxe to extract this rock.",
     NoExplosive = "You don't have any explosives to open the mine door.",
-    NoRock = "You don't have any rocks to clean in your inventory.",
-    BreakPickaxe = "Your pickaxe just broke."
+    NoRock = "You don't have any rocks to clean in your inventory."
 }
 
 Menu = {

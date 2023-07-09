@@ -739,6 +739,16 @@ RegisterNetEvent('cmining:search', function()
     end
 end)
 
+RegisterNetEvent('cmining:illness', function()
+    Health = GetEntityHealth(PlayerPedId())
+    IllnessDamage = SetEntityHealth(PlayerPedId(), Health - Config.BarrelSettings.IllnessDamage)
+
+    TriggerEvent('cmining:notify', Strings.Error, Strings.ObtainingIllness, 'error')
+    ShakeGameplayCam(Config.BarrelSettings.Effect, Config.BarrelSettings.EffectIntensity)
+    Wait(Config.BarrelSettings.EffectDuration * 1000)
+    StopGameplayCamShaking(true)
+end)
+
 RegisterNetEvent('cmining:cleaning', function()
     if Config.CleaningSettings.ProgressEnable then
         if Config.Progress == "qb" then

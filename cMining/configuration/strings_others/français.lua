@@ -8,14 +8,15 @@ Strings = {
     NotEnoughCash = "Vous n'avez pas suffisamment d'argent...",
     ExtractSuccess = "Vous avez réussi à extraire des éléments d'un rocher avec succès !",
     ExtractFailed = "Vous n'avez pas réussi à extraire ce rocher.",
+    BreakPickaxe = "Votre pioche vient de se casser.",
     SearchSuccess = "Vous avez fouillé le tonneau et trouvé x",
+    ObtainingIllness = "Vous vous êtes coupé avec un clou rouillé.",
     CleaningSuccess = "Vous avez réussi à nettoyer une pierre avec succès !",
     SellSuccess = "Vous avez vendu vos pierres nettoyées pour un total de $",
     SellFailed = "Vous n'avez aucune pierre nettoyée à vendre.",
     NoPickaxe = "Vous n'avez pas de pioche pour extraire ce rocher.",
     NoExplosive = "Vous n'avez pas d'explosifs pour ouvrir la porte de la mine.",
-    NoRock = "Vous n'avez aucune pierre à nettoyer dans votre inventaire.",
-    BreakPickaxe = "Votre pioche vient de se casser."
+    NoRock = "Vous n'avez aucune pierre à nettoyer dans votre inventaire."
 }
 
 Menu = {

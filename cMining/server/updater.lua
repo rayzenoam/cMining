@@ -7,7 +7,7 @@ CreateThread(function()
         RepositoryVersion = json.decode(responseText)
 
         if CurrentVersion ~= RepositoryVersion and tonumber(CurrentVersion) < tonumber(RepositoryVersion) then
-            print("^3The version " .. RepositoryVersion .. " of the cMining resource has just been released! (Your version: " .. CurrentVersion .. ")")
+            print("^3The version " .. RepositoryVersion .. " of the " .. Resource .. " resource has just been released! (Your version: " .. CurrentVersion .. ")")
             print("https://github.com" .. GitHubrepository .. "^0")
 
         elseif tonumber(CurrentVersion) > tonumber(RepositoryVersion) then

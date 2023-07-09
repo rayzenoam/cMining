@@ -14,7 +14,8 @@ Strings = {
     SellFailed = "Vous n'avez aucune pierre nettoyée à vendre.",
     NoPickaxe = "Vous n'avez pas de pioche pour extraire ce rocher.",
     NoExplosive = "Vous n'avez pas d'explosifs pour ouvrir la porte de la mine.",
-    NoRock = "Vous n'avez aucune pierre à nettoyer dans votre inventaire."
+    NoRock = "Vous n'avez aucune pierre à nettoyer dans votre inventaire.",
+    BreakPickaxe = "Votre pioche vient de se casser."
 }
 
 Menu = {

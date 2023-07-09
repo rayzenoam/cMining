@@ -12,7 +12,8 @@ Strings = {
     SellFailed = "You don't have any cleaned rocks to sell.",
     NoPickaxe = "You don't have a pickaxe to extract this rock.",
     NoExplosive = "You don't have any explosives to open the mine door.",
-    NoRock = "You don't have any rocks to clean in your inventory."
+    NoRock = "You don't have any rocks to clean in your inventory.",
+    BreakPickaxe = "Your pickaxe just broke."
 }
 
 Menu = {

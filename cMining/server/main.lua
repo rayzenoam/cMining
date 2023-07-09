@@ -134,7 +134,20 @@ RegisterServerEvent('cmining:server:checkpickaxe', function()
         return
     end
 
-    if Player.Functions.GetItemByName(Config.RockSettings.RequiredItem) ~= nil then
+    LuckDestroy = math.random(1, 100)
+
+    if Config.RockSettings.LuckDestroy then
+        if LuckDestroy < Config.RockSettings.LuckDestroy and Player.Functions.GetItemByName(Config.RockSettings.RequiredItem) ~= nil then
+            Player.Functions.RemoveItem(Config.RockSettings.RequiredItem)
+            TriggerClientEvent('cmining:notify', source, Strings.Error, Strings.BreakPickaxe, 'error')
+        else
+            if Player.Functions.GetItemByName(Config.RockSettings.RequiredItem) ~= nil then
+                TriggerClientEvent('cmining:mine', source)
+            else
+                TriggerClientEvent('cmining:notify', source, Strings.Error, Strings.NoPickaxe, 'error')
+            end
+        end
+    elseif Player.Functions.GetItemByName(Config.RockSettings.RequiredItem) ~= nil then
         TriggerClientEvent('cmining:mine', source)
     else
         TriggerClientEvent('cmining:notify', source, Strings.Error, Strings.NoPickaxe, 'error')

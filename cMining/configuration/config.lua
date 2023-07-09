@@ -138,6 +138,7 @@ RockSettings = {
     DurationMining = 10, -- Determines the duration of the progress bar.
     Cancellable = true, -- Determines if the progress bar can be stopped or no.
     RequiredItem = "pickaxe", -- Determines the required item to perform the action.
+    LuckDestroy = 15, -- It allows you to set a percentage chance for the pickaxe to break. You can also disable this option by setting it to false.
     -- The "AnimationDict" configuration allows you to set the animation that will be played during the interaction.
     -- You can find the list of animations here: https://alexguirre.github.io/animations-list/
     AnimationDict = "melee@hatchet@streamed_core",

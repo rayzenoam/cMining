@@ -385,6 +385,7 @@ end)
 
 RegisterNetEvent('cmining:spawnvehicle', function()
     Vehicle = CreateVehicle(Config.GarageSettings.Vehicle, Config.Coords.SpawnVehicle.x, Config.Coords.SpawnVehicle.y, Config.Coords.SpawnVehicle.z, Config.Coords.SpawnVehicle.w, true, true)
+    SetEntityAsMissionEntity(Vehicle, true, true)
     SetVehicleHasBeenOwnedByPlayer(Vehicle, false)
 
     if Config.GarageSettings.PlateText == false then
@@ -400,8 +401,18 @@ RegisterNetEvent('cmining:spawnvehicle', function()
     if Config.GarageSettings.ForcePlayerDriver then
         TaskWarpPedIntoVehicle(PlayerPedId(), Vehicle, -1)
     end
-    TriggerEvent('vehiclekeys:client:SetOwner', GetVehicleNumberPlateText(Vehicle))
-    exports['LegacyFuel']:SetFuel(Vehicle, 100.0)
+
+    if Config.Key == "qb" then
+        TriggerEvent('vehiclekeys:client:SetOwner', GetVehicleNumberPlateText(Vehicle))
+    elseif Config.Key == "custom" then
+        -- You can add your code here!
+    end
+
+    if Config.Fuel == "legacy" then
+        exports['LegacyFuel']:SetFuel(Vehicle, 100.0)
+    elseif Config.Fuel == "custom" then
+        -- You can add your code here!
+    end
 end)
 
 RegisterNetEvent('cmining:opendoor', function()

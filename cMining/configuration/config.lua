@@ -5,6 +5,8 @@ Menu = "qb", -- qb: qbcore | ox: ox_lib
 Target = "qb", -- qb: qbcore
 Notification = "qb", -- qb: qbcore | ox: ox_lib
 Progress = "qb", -- qb: qbcore | progresscircle: ox_lib (https://imgur.com/2tLbgrW) | progressbar : ox_lib (https://imgur.com/7ZJgLjl)
+Key = "qb", -- qb: qbcore
+Fuel = "legacy", -- legacy: LegacyFuel
 
 -- "job": You can set exclusive access to a specific job.
 -- false: It allows you to bypass the restricted access to a specific job.
@@ -76,6 +78,7 @@ PedSettings = {
 
 GarageSettings = {
     TakeVehicleIcon = "truck", -- Icon for the "To take a vehicle" option in the boss menu.
+    ParkVehicleIcon = "truck", -- Icon for the "Park your vehicle in the garage" option in the boss menu.
     Vehicle = "speedo", -- Model of the vehicle you want to put in the garage.
     ForcePlayerDriver = true, -- Determine whether you want the player to be placed directly in the driver's seat of the vehicle upon its appearance or not.
     DisableRadio = true, -- Determine whether you want to disable the radio when the player enters the vehicle or not.

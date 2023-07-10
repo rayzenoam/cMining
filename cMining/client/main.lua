@@ -331,8 +331,7 @@ RegisterNetEvent('cmining:openmenu', function()
                     description = Menu.Garage_desc,
                     icon = Config.PedSettings.GarageIcon,
                     arrow = true,
-                    menu = "garage_menu",
-                    disabled = true
+                    menu = "garage_menu"
                 }
             }
         })
@@ -347,6 +346,14 @@ RegisterNetEvent('cmining:openmenu', function()
                     icon = Config.GarageSettings.TakeVehicleIcon,
                     onSelect = function()
                         TriggerEvent('cmining:spawnvehicle')
+                    end
+                },
+                {
+                    title = Menu.ReturnVehicle,
+                    description = Menu.ReturnVehicle_desc,
+                    icon = Config.GarageSettings.ReturnVehicleIcon,
+                    onSelect = function()
+                        TriggerEvent('cmining:returnvehicle')
                     end
                 }
             }
@@ -371,6 +378,15 @@ RegisterNetEvent('cmining:qb-menu:garage', function()
             params = {
                 isServer = false,
                 event = 'cmining:spawnvehicle'
+            }
+        },
+        {
+            header = Menu.ReturnVehicle,
+            txt = Menu.ReturnVehicle_desc,
+            icon = Config.GarageSettings.ReturnVehicleIcon,
+            params = {
+                isServer = false,
+                event = 'cmining:returnvehicle'
             }
         },
         {
@@ -412,6 +428,32 @@ RegisterNetEvent('cmining:spawnvehicle', function()
         exports['LegacyFuel']:SetFuel(Vehicle, 100.0)
     elseif Config.Fuel == "custom" then
         -- You can add your code here!
+    end
+end)
+
+RegisterNetEvent('cmining:returnvehicle', function()
+    Vehicle = GetVehiclePedIsIn(PlayerPedId(), true)
+
+    if Vehicle ~= 0 or nil then
+        Plate = GetVehicleNumberPlateText(Vehicle)
+
+        if Config.GarageSettings.PlateText == false then
+            if string.find(Plate, "CMINING") then
+                DeleteVehicle(Vehicle)
+                TriggerEvent('cmining:notify', Strings.Success, Strings.ReturnVehicleSuccess, 'success')
+            else
+                TriggerEvent('cmining:notify', Strings.Error, Strings.NoMineVehicle, 'error')
+            end
+        else
+            if string.find(Plate, string.upper(Config.GarageSettings.PlateText)) then
+                DeleteVehicle(Vehicle)
+                TriggerEvent('cmining:notify', Strings.Success, Strings.ReturnVehicleSuccess, 'success')
+            else
+                TriggerEvent('cmining:notify', Strings.Error, Strings.NoMineVehicle, 'error')
+            end
+        end
+    else
+        TriggerEvent('cmining:notify', Strings.Error, Strings.NoVehicle, 'error')
     end
 end)
 

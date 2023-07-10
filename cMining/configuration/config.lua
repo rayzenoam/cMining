@@ -78,7 +78,7 @@ PedSettings = {
 
 GarageSettings = {
     TakeVehicleIcon = "truck", -- Icon for the "To take a vehicle" option in the boss menu.
-    ParkVehicleIcon = "truck", -- Icon for the "Park your vehicle in the garage" option in the boss menu.
+    ReturnVehicleIcon = "handshake-simple", -- Icon for the "Park your vehicle in the garage" option in the boss menu.
     Vehicle = "speedo", -- Model of the vehicle you want to put in the garage.
     ForcePlayerDriver = true, -- Determine whether you want the player to be placed directly in the driver's seat of the vehicle upon its appearance or not.
     DisableRadio = true, -- Determine whether you want to disable the radio when the player enters the vehicle or not.

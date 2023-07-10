@@ -14,7 +14,10 @@ Strings = {
     SellFailed = "You don't have any cleaned rocks to sell.",
     NoPickaxe = "You don't have a pickaxe to extract this rock.",
     NoExplosive = "You don't have any explosives to open the mine door.",
-    NoRock = "You don't have any rocks to clean in your inventory."
+    NoRock = "You don't have any rocks to clean in your inventory.",
+    ReturnVehicleSuccess = "You have just returned the mine's vehicle to the owner!",
+    NoVehicle = "You don't have any vehicle to return to the mine owner.",
+    NoMineVehicle = "You cannot return a different vehicle to the mine owner."
 }
 
 Menu = {
@@ -28,6 +31,8 @@ Menu = {
     Garage_desc = "You are allowed to take out or park the mine vehicles.",
     TakeVehicle = "To take a vehicle",
     TakeVehicle_desc = "You are allowed to take a vehicle out of the mine.",
+    ReturnVehicle = "Return the vehicle",
+    ReturnVehicle_desc = "Allows you to return the mine's vehicle to the owner.",
     Back = "Return"
 }
 

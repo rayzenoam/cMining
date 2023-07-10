@@ -16,7 +16,10 @@ Strings = {
     SellFailed = "Vous n'avez aucune pierre nettoyée à vendre.",
     NoPickaxe = "Vous n'avez pas de pioche pour extraire ce rocher.",
     NoExplosive = "Vous n'avez pas d'explosifs pour ouvrir la porte de la mine.",
-    NoRock = "Vous n'avez aucune pierre à nettoyer dans votre inventaire."
+    NoRock = "Vous n'avez aucune pierre à nettoyer dans votre inventaire.",
+    ReturnVehicle = "Vous venez de rendre le véhicule de la mine au patron !",
+    NoVehicle = "Vous n'avez pas de véhicule à rendre au patron de la mine.",
+    NoMineVehicle = "Vous ne pouvez pas rendre un véhicule différent au patron de la mine."
 }
 
 Menu = {
@@ -30,6 +33,8 @@ Menu = {
     Garage_desc = "Vous permet de sortir ou ranger les véhicules de la mine.",
     TakeVehicle = "Prendre un véhicule",
     TakeVehicle_desc = "Vous permet de sortir un véhicule de la mine.",
+    ParkVehicle = "Rendre le véhicule",
+    ParkVehicle_desc = "Vous permet de rendre le véhicule de la mine au patron.",
     Back = "Retour"
 }
 

@@ -388,7 +388,7 @@ RegisterNetEvent('cmining:spawnvehicle', function()
     SetVehicleHasBeenOwnedByPlayer(Vehicle, false)
 
     if Config.GarageSettings.PlateText == false then
-        SetVehicleNumberPlateText(Vehicle, "cMining")
+        SetVehicleNumberPlateText(Vehicle, "cMining" .. math.random(1, 9))
     else
         SetVehicleNumberPlateText(Vehicle, Config.GarageSettings.PlateText .. math.random(10000000, 20000000))
     end

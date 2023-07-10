@@ -19,6 +19,11 @@ CreateThread(function()
         Wait(1)
     end
 
+    RequestModel(Config.GarageSettings.Vehicle)
+    while not HasModelLoaded(Config.GarageSettings.Vehicle) do
+        Wait(1)
+    end
+
     RequestModel(Config.PedHash.Buyer)
     while not HasModelLoaded(Config.PedHash.Buyer) do
         Wait(1)
@@ -29,7 +34,7 @@ CreateThread(function()
         Wait(1)
     end
 
-    if Config.Debug and HasModelLoaded(Config.PedHash.Boss) and HasModelLoaded(Config.PedHash.Buyer) and HasModelLoaded(Config.PropBomb.Prop) then
+    if Config.Debug and HasModelLoaded(Config.PedHash.Boss) and HasModelLoaded(Config.GarageSettings.Vehicle) and HasModelLoaded(Config.PedHash.Buyer) and HasModelLoaded(Config.PropBomb.Prop) then
         print('[cMining - HasModelLoaded] ' .. Debug.HasModelLoaded)
     end
 
@@ -285,6 +290,15 @@ RegisterNetEvent('cmining:openmenu', function()
                 }
             },
             {
+                header = Menu.Garage,
+                txt = Menu.Garage_desc,
+                icon = Config.PedSettings.GarageIcon,
+                params = {
+                    isServer = false,
+                    event = 'cmining:qb-menu:garage'
+                }
+            },
+            {
                 header = Menu.Back
             }
         })
@@ -311,6 +325,29 @@ RegisterNetEvent('cmining:openmenu', function()
                         TriggerServerEvent('cmining:server:purchaseexplosive')
                         TriggerEvent('cmining:openmenu')
                     end
+                },
+                {
+                    title = Menu.Garage,
+                    description = Menu.Garage_desc,
+                    icon = Config.PedSettings.GarageIcon,
+                    arrow = true,
+                    menu = "garage_menu",
+                    disabled = true
+                }
+            }
+        })
+        lib.registerContext({
+            id = "garage_menu",
+            title = Menu.Garage,
+            menu = "mining_menu",
+            options = {
+                {
+                    title = Menu.TakeVehicle,
+                    description = Menu.TakeVehicle_desc,
+                    icon = Config.GarageSettings.TakeVehicleIcon,
+                    onSelect = function()
+                        TriggerEvent('cmining:spawnvehicle')
+                    end
                 }
             }
         })
@@ -319,6 +356,52 @@ RegisterNetEvent('cmining:openmenu', function()
     elseif Config.Menu == "custom" then
         -- You can add your code here!
     end
+end)
+
+RegisterNetEvent('cmining:qb-menu:garage', function()
+    exports['qb-menu']:openMenu({
+        {
+            header = Menu.Garage,
+            isMenuHeader = true,
+        },
+        {
+            header = Menu.TakeVehicle,
+            txt = Menu.TakeVehicle_desc,
+            icon = Config.GarageSettings.TakeVehicleIcon,
+            params = {
+                isServer = false,
+                event = 'cmining:spawnvehicle'
+            }
+        },
+        {
+            header = Menu.Back,
+            params = {
+                isServer = false,
+                event = 'cmining:openmenu'
+            }
+        }
+    })
+end)
+
+RegisterNetEvent('cmining:spawnvehicle', function()
+    Vehicle = CreateVehicle(Config.GarageSettings.Vehicle, Config.Coords.SpawnVehicle.x, Config.Coords.SpawnVehicle.y, Config.Coords.SpawnVehicle.z, Config.Coords.SpawnVehicle.w, true, true)
+    SetVehicleHasBeenOwnedByPlayer(Vehicle, false)
+
+    if Config.GarageSettings.PlateText == false then
+        SetVehicleNumberPlateText(Vehicle, "cMining")
+    else
+        SetVehicleNumberPlateText(Vehicle, Config.GarageSettings.PlateText .. math.random(10000000, 20000000))
+    end
+
+    if Config.GarageSettings.DisableRadio then
+        SetVehRadioStation(Vehicle, 'OFF')
+    end
+
+    if Config.GarageSettings.ForcePlayerDriver then
+        TaskWarpPedIntoVehicle(PlayerPedId(), Vehicle, -1)
+    end
+    TriggerEvent('vehiclekeys:client:SetOwner', GetVehicleNumberPlateText(Vehicle))
+    exports['LegacyFuel']:SetFuel(Vehicle, 100.0)
 end)
 
 RegisterNetEvent('cmining:opendoor', function()

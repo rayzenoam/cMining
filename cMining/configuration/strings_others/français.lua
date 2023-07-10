@@ -26,6 +26,10 @@ Menu = {
     TakePickaxe_desc = "Prix: $",
     TakeExplosive = "Prendre un explosif",
     TakeExplosive_desc = "Prix: $",
+    Garage = "Garage",
+    Garage_desc = "Vous permet de sortir ou ranger les véhicules de la mine.",
+    TakeVehicle = "Prendre un véhicule",
+    TakeVehicle_desc = "Vous permet de sortir un véhicule de la mine.",
     Back = "Retour"
 }
 

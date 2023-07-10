@@ -44,7 +44,8 @@ Coords = {
     Boss = vec4(-598.0, 2091.38, 131.40, 345.51),
     Door = vec4(-596.0, 2088.50, 131.41, 13.96),
     Cleaning = vec4(-668.34, 2414.32, 49.42, 340.94),
-    Buyer = vec4(2571.54, 2721.63, 42.98, 213.07)
+    Buyer = vec4(2571.54, 2721.63, 42.98, 213.07),
+    SpawnVehicle = vec4(-607.89, 2108.28, 126.91, 108.57)
 },
 
 -- List of peds: https://docs.fivem.net/docs/game-references/ped-models/
@@ -66,11 +67,19 @@ PedSettings = {
     BuyerTargetIcon = "fa-solid fa-store", -- Ped Buyer targeting icon
     TakePickaxeIcon = "cart-shopping", -- Icon for the "Take a pickaxe" option in the boss menu.
     TakeExplosiveIcon = "cart-shopping", -- Icon for the "Take an explosive" option in the boss menu.
-    TakeVehicleIcon = "warehouse", -- Icon for the "Take a Pickaxe" option in the boss menu.
+    GarageIcon = "warehouse", -- Icon for the "Garage" option in the boss menu.
     ProgressEnable = true, -- Determines if the progress bar is active or not.
     PositionProgress = "bottom", -- Determines the position of the progress bar.
     DurationOpenMenu = 5, -- Determines the duration of the progress bar to open the menu.
     Cancellable = true -- Determines if the progress bar can be stopped or no.
+},
+
+GarageSettings = {
+    TakeVehicleIcon = "truck", -- Icon for the "To take a vehicle" option in the boss menu.
+    Vehicle = "speedo", -- Model of the vehicle you want to put in the garage.
+    ForcePlayerDriver = true, -- Determine whether you want the player to be placed directly in the driver's seat of the vehicle upon its appearance or not.
+    DisableRadio = true, -- Determine whether you want to disable the radio when the player enters the vehicle or not.
+    PlateText = false -- You can set a custom license plate on the mine vehicles. You can also disable this option by setting it to false.
 },
 
 MeansOfPayment = "cash", -- Payment method used for purchasing and selling items.

@@ -16,6 +16,7 @@ Strings = {
     NoExplosive = "You don't have any explosives to open the mine door.",
     NoRock = "You don't have any rocks to clean in your inventory.",
     ReturnVehicleSuccess = "You have just returned the mine's vehicle to the owner!",
+    ReturnVehicleFailed = "Your vehicle is not close enough to the mine.",
     NoVehicle = "You don't have any vehicle to return to the mine owner.",
     NoMineVehicle = "You cannot return a different vehicle to the mine owner."
 }

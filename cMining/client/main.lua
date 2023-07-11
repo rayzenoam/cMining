@@ -433,24 +433,32 @@ end)
 
 RegisterNetEvent('cmining:returnvehicle', function()
     Vehicle = GetVehiclePedIsIn(PlayerPedId(), true)
+    VehicleDistance = GetEntityCoords(Vehicle)
+    BossDistance = GetEntityCoords(Boss)
+
+    Distance = #(BossDistance - VehicleDistance)
 
     if Vehicle ~= 0 or nil then
-        Plate = GetVehicleNumberPlateText(Vehicle)
+        if Distance < 25 then
+            Plate = GetVehicleNumberPlateText(Vehicle)
 
-        if Config.GarageSettings.PlateText == false then
-            if string.find(Plate, "CMINING") then
-                DeleteVehicle(Vehicle)
-                TriggerEvent('cmining:notify', Strings.Success, Strings.ReturnVehicleSuccess, 'success')
+            if Config.GarageSettings.PlateText == false then
+                if string.find(Plate, "CMINING") then
+                    DeleteVehicle(Vehicle)
+                    TriggerEvent('cmining:notify', Strings.Success, Strings.ReturnVehicleSuccess, 'success')
+                else
+                    TriggerEvent('cmining:notify', Strings.Error, Strings.NoMineVehicle, 'error')
+                end
             else
-                TriggerEvent('cmining:notify', Strings.Error, Strings.NoMineVehicle, 'error')
+                if string.find(Plate, string.upper(Config.GarageSettings.PlateText)) then
+                    DeleteVehicle(Vehicle)
+                    TriggerEvent('cmining:notify', Strings.Success, Strings.ReturnVehicleSuccess, 'success')
+                else
+                    TriggerEvent('cmining:notify', Strings.Error, Strings.NoMineVehicle, 'error')
+                end
             end
         else
-            if string.find(Plate, string.upper(Config.GarageSettings.PlateText)) then
-                DeleteVehicle(Vehicle)
-                TriggerEvent('cmining:notify', Strings.Success, Strings.ReturnVehicleSuccess, 'success')
-            else
-                TriggerEvent('cmining:notify', Strings.Error, Strings.NoMineVehicle, 'error')
-            end
+            TriggerEvent('cmining:notify', Strings.Error, Strings.ReturnVehicleFailed, 'error')
         end
     else
         TriggerEvent('cmining:notify', Strings.Error, Strings.NoVehicle, 'error')

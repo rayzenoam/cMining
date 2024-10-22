@@ -29,4 +29,4 @@ https://www.youtube.com/watch?v=XF4xT2Efe7E
 You can find the [documentation](https://cscript.gitbook.io/cscript/free-resource/cmining/installation) for all cScript resources on the [Gitbook](https://cscript.gitbook.io/cscript/free-resource/cmining/installation).
 ## Support
 
-You can join the [Discord server](https://discord.com/dZdn7JcndM) if you have any questions or issues regarding cScript resources!
+You can join the [Discord server](https://discord.com/ZTPcwAFrBU) if you have any questions or issues regarding cScript resources!
